@@ -15,18 +15,9 @@ cd model_distillation
 
 ### 2. Create a Python environment
 
-Using conda:
-
 ```bash
 conda create -n kdproj python=3.10 -y
 conda activate kdproj
-```
-
-Using venv:
-
-```bash
-python -m venv kdproj
-source kdproj/bin/activate
 ```
 
 ### 3. Install dependencies
@@ -35,13 +26,30 @@ source kdproj/bin/activate
 pip install -r requirements.txt
 ```
 
+If on delta, you will need to download a different torch version and register the environment:
+```bash
+pip install -r requirements-delta.txt
+python -m ipykernel install --user --name kdproj --display-name "Python (kdproj)"
+```
+
 ### 4. Open the notebook
 
 ```bash
 jupyter notebook knowledge_distillation.ipynb
 ```
 
-Or, open the notebook using VS Code.
+Or, if on Delta NCSA, you should start jupyter through Slurm:
+
+```bash
+MYPORT=$(($(($RANDOM % 10000))+49152)); echo $MYPORT
+
+srun --account=bchn-delta-gpu \
+     --partition=gpuA40x4-interactive \
+     --time=01:00:00 \
+     --mem=32g \
+     --gpus-per-node=1 \
+     jupyter-notebook --no-browser --port=$MYPORT --ip=0.0.0.0
+```
 
 ### 5. Run the notebook
 
@@ -54,7 +62,7 @@ TRAIN_DISTILLED = False
 RUN_SWEEP = False
 ```
 
-If checkpoints already exist locally, you can set them to `False` to avoid retraining
+If checkpoints already exist locally (in the folder `checkpoints/`), you can set the flags to `False` to avoid retraining
 
 For a fresh run from scratch, set the training flags to `True`
 
