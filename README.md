@@ -26,7 +26,7 @@ conda activate kdproj
 pip install -r requirements.txt
 ```
 
-If on delta, you will need to download a different torch version and register the environment:
+If on Delta, you will need to download a different torch version and register the environment:
 ```bash
 pip install -r requirements-delta.txt
 python -m ipykernel install --user --name kdproj --display-name "Python (kdproj)"
@@ -38,7 +38,7 @@ python -m ipykernel install --user --name kdproj --display-name "Python (kdproj)
 jupyter notebook knowledge_distillation.ipynb
 ```
 
-Or, if on Delta NCSA, you should start jupyter through Slurm:
+Or, if on Delta, you should start jupyter through Slurm:
 
 ```bash
 MYPORT=$(($(($RANDOM % 10000))+49152)); echo $MYPORT
