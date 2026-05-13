@@ -4,20 +4,20 @@
     "test_loss": 0.2121,
     "test_accuracy": 0.955,
     "parameters": 11173962,
-    "seconds_per_image": 0.0002082434540716349
+    "seconds_per_image": 0.0002040348926675506
   },
   {
     "model": "Student Baseline",
-    "test_loss": 0.4382,
-    "test_accuracy": 0.8556,
+    "test_loss": 0.4295,
+    "test_accuracy": 0.8603,
     "parameters": 141354,
-    "seconds_per_image": 0.0001957075337486458
+    "seconds_per_image": 0.00019166071640938753
   },
   {
     "model": "Student Distilled",
-    "test_loss": 0.4691,
-    "test_accuracy": 0.863,
+    "test_loss": 0.4682,
+    "test_accuracy": 0.8655,
     "parameters": 141354,
-    "seconds_per_image": 0.00019694592516316333
+    "seconds_per_image": 0.00019196903545889654
   }
 ]
